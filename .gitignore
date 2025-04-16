@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+
+**/__pycache__/
+
+wordhoard_error.yaml
+
+experiments/
+slim_experiments/

@@ -1,0 +1,6 @@
+dataset_name: "flickr30k"
+test_file: './data_annotation/flickr30k_test.json'
+img_list_file: './data_annotation/img_list_complete_flickr30k.json'
+image_root: '/data/datasets/flickr30k_images/flickr30k_images'
+
+bert_config: './configs/config_bert.json'

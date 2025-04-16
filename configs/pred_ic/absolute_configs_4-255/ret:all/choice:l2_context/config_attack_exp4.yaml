@@ -1,0 +1,22 @@
+# -----
+num_ret_captions: 'All' # define the number of retrieval queries to use for each adv. 'All': all possible ret queries (except that one used for adv alignment)
+
+image_attack_num_iter: 100
+image_attack_name: 'PGD_linf'
+image_attack_params: {
+  ε: 4/255,
+  scaled_step_size: False, # important
+  absolute_step_size: 0.000470588
+}
+
+# -----
+
+txt_similarity_name: 'TextPredLlmsAug'
+txt_similarity_params: {
+  # ----------
+  loss_type: L2, # Cosine, L2 -> Se Random, le parole vengono prese completamente a caso. Con L2 (o cosine), secondo una logica
+  # ----------
+  add_original_captions: True,
+  max_length: 100,
+  num_copium: 15, # cardinality of S
+  }

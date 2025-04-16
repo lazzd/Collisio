@@ -1,0 +1,40 @@
+# -----
+num_ret_captions: 'All' # define the number of retrieval queries to use for each adv. 'All': all possible ret queries (except that one used for adv alignment)
+
+image_attack_num_iter: 100
+image_attack_name: 'PGD_linf'
+image_attack_params: {
+  ε: 4/255,
+  scaled_step_size: False, # important
+  absolute_step_size: 0.000470588
+}
+
+# -----
+
+txt_similarity_name: 'TextCopium'
+txt_similarity_params: {
+  use_thesaurus: True,
+  # ----------
+  use_offline_dict: True,
+  # ----------
+  loss_type: Cosine, # Cosine, L2 -> Se Random, le parole vengono prese completamente a caso. Con L2 (o cosine), secondo una logica
+  # ----------
+  use_loss_for_final: True, # Use loss also for compute final |S|, not work with loss_type=Random
+  # ----------
+  sentence_context: True, # se per L2 utilizzare il contensto della frase, altrimenti dare solamente la parola originale (top ora e' a false)
+  # ----------
+  add_original_word: True, # per simulare l'at least (un sinonimo)...
+  # ----------
+  add_original_captions: True,
+  max_length: 100,
+  num_copium: 15, # cardinality of S
+  # ----------
+  # SE NON USI THESAURUS
+  # ----------
+  topk: 50, #?
+  topsyn: null, # for use_thesaurus
+  threshold_pred_score: 0.3,
+  # ----------
+  num_perturbation: 3, # Numero di cambiamenti (parole cambiate)
+  num_link: 3, # Numero di elementi da tenere in cosiderazione per ogni parola per costruzione (sinonimi per ogni parola). Puo' essere 'Inf', ma esplode complessita'
+  }
