@@ -1,0 +1,6 @@
+dataset_name: "coco"
+test_file: './data_annotation/coco_test.json'
+img_list_file: './data_annotation/img_list_complete_coco.json'
+image_root: '/data/datasets/coco'
+
+bert_config: './configs/config_bert.json'
